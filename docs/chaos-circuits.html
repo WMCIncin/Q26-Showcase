@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Chaos Circuits course studies for Tidal Braid and Glacier Switch, with route diagrams and test status.">
+  <title>Chaos Circuits | Q26 Showcase</title>
+  <link rel="icon" href="media/favicon.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="cc">
+  <a class="skip" href="#main">Skip to content</a>
+  <header><div class="shell bar">
+    <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">Q26</span> Project showcase</a>
+    <nav aria-label="Projects"><a href="q26.html">Q26</a><a href="chaos-circuits.html" aria-current="page">Chaos Circuits</a><a href="assault-knights.html">Assault Knights</a></nav>
+  </div></header>
+  <main id="main" tabindex="-1" class="shell">
+<div class="hero">
+  <img src="media/cc-tidal.webp" alt="">
+  <div class="hero-copy">
+    <p class="kicker">Hover racing</p>
+    <h1>Chaos Circuits</h1>
+    <p class="intro">Follow two terrain courses through tilted loops, corkscrews and alternate lanes. These course studies combine spline roadways, vehicle clearance and checkpoint design.</p>
+    <div class="actions"><a class="button" href="#courses">Compare the courses</a><a class="button secondary" href="#validation">See development status</a></div>
+  </div>
+</div>
+<p class="caption">Tidal Braid route plan from the authored splines. Cyan lines mark alternate routes.</p><div class="metrics"><div class="metric"><strong>2</strong><span>Terrain course candidates</span></div><div class="metric"><strong>8</strong><span>Ordered checkpoints per course</span></div><div class="metric"><strong>10</strong><span>Staggered starts per course</span></div></div>
+<section id="courses" aria-labelledby="courses-title">
+ <h2 id="courses-title">Course studies</h2>
+ <div class="course-grid">
+  <article class="course"><img src="media/cc-tidal.webp" alt="Tidal Braid main loop in orange with two alternate paths in cyan" loading="lazy"><div class="body"><h3>Tidal Braid</h3><p>The shoreline route dips through a buried corkscrew and climbs into a loop tilted 65° around its entry direction.</p><p>Recharge and repair sit before the stunt sequence. Boosts mark the corkscrew, jump and loop approaches.</p></div></article>
+  <article class="course"><img src="media/cc-glacier.webp" alt="Glacier Switch main loop in light blue and alternate paths in warm orange" loading="lazy"><div class="body"><h3>Glacier Switch</h3><p>Raised switchbacks and a −40° loop make a distinct race line. Its roller has the same two low guide rails, leaving a 432-unit clear centre lane.</p><p>Both courses use amber and cyan to distinguish the left and right guide rails.</p></div></article>
+ </div>
+</section>
+<section id="validation" class="split" aria-labelledby="validation-title">
+ <div><h2 id="validation-title">From spline to race</h2><p>Each 3D route defines the road surface, barriers, checkpoints and a pair of directed split and merge lanes. A heightfield alone cannot describe overhangs in corkscrews or loops.</p><p>The retained route checks passed for both courses and both workbench views per course. Each track has one start and finish, with eight checkpoints in between.</p></div>
+ <div class="info"><h3>Development status</h3><p>The claim covers authored layouts and route-graph checks. A finished AAS navigation build, AI alternate-lane choice and a live race still need their own tests. This hub presents the courses as development work.</p></div>
+</section>
+<section aria-label="Related development posts"><h2>Development history</h2><ul><li><a href="dev-chaos-circuits.html">Chaos Circuits development post</a></li></ul></section>
+</main>
+  <footer><div class="shell foot">
+    <p>Q26 Showcase · 0.1.0 · Bill Kosche - William Kosche</p>
+    <div class="footer-links"><a href="development.html">Development posts</a><a href="index.html#projects">Project hubs</a><a href="legal.html">Licences and credits</a></div>
+  </div></footer>
+</body>
+</html>

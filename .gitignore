@@ -1,0 +1,7 @@
+# Local editor and build output
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+.vscode/
+__pycache__/

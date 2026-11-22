@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore the Aurora Canyon road network, terrain data and Q26 conversion status from Assault Knights.">
+  <title>Assault Knights | Q26 Showcase</title>
+  <link rel="icon" href="media/favicon.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="ak">
+  <a class="skip" href="#main">Skip to content</a>
+  <header><div class="shell bar">
+    <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">Q26</span> Project showcase</a>
+    <nav aria-label="Projects"><a href="q26.html">Q26</a><a href="chaos-circuits.html">Chaos Circuits</a><a href="assault-knights.html" aria-current="page">Assault Knights</a></nav>
+  </div></header>
+  <main id="main" tabindex="-1" class="shell">
+<div class="hero">
+  <img src="media/ak-aurora.webp" alt="">
+  <div class="hero-copy">
+    <p class="kicker">World and editor development</p>
+    <h1>Assault Knights</h1>
+    <p class="intro">Explore Aurora Canyon’s authored terrain, branching roads and elevation changes. The same route design can be examined as a plan, a terrain surface and a conversion candidate.</p>
+    <div class="actions"><a class="button" href="#aurora">Explore Aurora Canyon</a><a class="button secondary" href="#conversion">Read the conversion status</a></div>
+  </div>
+</div>
+<p class="caption">Aurora Canyon authored terrain and roadway network, drawn from its heightfield and spline samples.</p><div class="metrics"><div class="metric"><strong>10 × 10 km</strong><span>Authored terrain footprint</span></div><div class="metric"><strong>38 / 47</strong><span>Nodes and edges in the authored network</span></div><div class="metric"><strong>32–96 m</strong><span>Authored roadway widths</span></div></div>
+<section id="aurora" class="split" aria-labelledby="aurora-title">
+ <div><h2 id="aurora-title">Aurora Canyon</h2>
+ <p>The authored canyon covers a 10 km square. The connected road graph contains 38 junction and route nodes, 47 edges and 10 independent cycles. Maximum measured road grade is 8.6% in this source revision.</p>
+ <p>Four fork families split into three lanes and then merge. Their separate elevations let the designer build bridges and crossings within the same route network.</p>
+ <p>The plan shows the authored network. The conversion adds its own review extensions and keeps the original positions inside the 10 km core.</p></div>
+ <figure><img src="media/ak-aurora.webp" alt="Plan of the 10 kilometre Aurora Canyon terrain with pale roads branching and merging over the relief" loading="lazy"><figcaption>The pale lines follow the 47 authored routes through the canyon.</figcaption></figure>
+</section>
+<section id="conversion" aria-labelledby="conversion-title">
+ <h2 id="conversion-title">What transferred to Q26</h2>
+ <div class="table-wrap" tabindex="0" role="region" aria-label="Aurora Canyon conversion results"><table>
+   <thead><tr><th scope="col">Check</th><th scope="col">Result</th></tr></thead>
+   <tbody>
+     <tr><th scope="row">Authored dimensions</th><td>The 10 km core is preserved at native metric scale. A 14.2 km guard envelope in the conversion handles Q26’s terrain boundary falloff.</td></tr>
+     <tr><th scope="row">Terrain samples</th><td>8,321 height queries passed in a structural comparison across 16 native terrain tiles.</td></tr>
+     <tr><th scope="row">Roadway review</th><td>Editable route information and review geometry preserve the original route coordinates. Complete vehicle collision, terrain holes and tunnel gameplay remain open for this conversion.</td></tr>
+   </tbody>
+ </table></div>
+</section>
+<section aria-label="Related development posts"><h2>Development history</h2><ul><li><a href="dev-assault-knights.html">Aurora Canyon development post</a></li></ul></section>
+</main>
+  <footer><div class="shell foot">
+    <p>Q26 Showcase · 0.1.0 · Bill Kosche - William Kosche</p>
+    <div class="footer-links"><a href="development.html">Development posts</a><a href="index.html#projects">Project hubs</a><a href="legal.html">Licences and credits</a></div>
+  </div></footer>
+</body>
+</html>

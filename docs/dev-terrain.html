@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="From the rugged R7 coast to R8’s smoother valleys and faster edge stitching.">
+  <title>Building the 131.072 km terrain | Q26 Showcase</title>
+  <link rel="icon" href="media/favicon.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="q26">
+  <a class="skip" href="#main">Skip to content</a>
+  <header><div class="shell bar">
+    <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">Q26</span> Project showcase</a>
+    <nav aria-label="Projects"><a href="q26.html">Q26</a><a href="chaos-circuits.html">Chaos Circuits</a><a href="assault-knights.html">Assault Knights</a></nav>
+  </div></header>
+  <main id="main" tabindex="-1" class="shell">
+<article class="top-gap reading">
+<p class="kicker">Q26</p>
+<h1>Building the 131.072 km terrain</h1>
+<p class="caption">November 21–22, 2026</p><p class="intro">From the rugged R7 coast to R8’s smoother valleys and faster edge stitching.</p>
+<section><h2>Establish the native scale</h2><p>R7 compiled and ran as a single BSP at scale 1. Its world spans 4,194,304 units in X and Y. At 32 units per metre that is 131.072 km per side. An independent parser measured the selected rendered terrain at 4,194,176 units per side because it sits two metres inside each boundary. The bounds measure the footprint. Continuous collision and surface coverage need additional sampling.</p></section>
+<section><h2>Refine the terrain and compare the compiler</h2><p>R8 reduced harsh slopes in the valleys and retained the same footprint, high peaks and shoreline. Edge stitching had dominated the compile. A private compiler added a four-edge rejection test ahead of the existing scalar search. Its coast and mountain fixtures, plus a translated near-boundary fixture, matched the original compiler’s active BSP fields and portal data. The original repeat already varied in unused lightmap coordinates. Raw BSP hashes therefore vary for those fixtures.</p></section>
+<section><h2>Verify the compiled world</h2><p>The full R8 BSP pass finished in 314.3 seconds, followed by visibility and lighting. It recorded 1,419 warnings from intermediate node padding at the boundary. The emitted leaf bounds were finite, ordered and inside the expected envelope. Twenty-seven selected collision and water probes passed. The four native OpenGL flights cover coast, interior ridges, an outer mountain group and an open lowland gap.</p></section>
+<section><h2>Read the result in scope</h2><p>The 80-second video used a fixed 50 ms simulation step for capture. Frame timing, exhaustive coverage and public release all need separate evidence. The mini map pack in this showcase uses its own original geometry and is much smaller than R8.</p></section>
+<p><a href="q26.html">Open the Q26 hub</a> · <a href="development.html">All development posts</a></p>
+</article>
+</main>
+  <footer><div class="shell foot">
+    <p>Q26 Showcase · 0.1.0 · Bill Kosche - William Kosche</p>
+    <div class="footer-links"><a href="development.html">Development posts</a><a href="index.html#projects">Project hubs</a><a href="legal.html">Licences and credits</a></div>
+  </div></footer>
+</body>
+</html>

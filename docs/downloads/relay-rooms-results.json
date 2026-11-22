@@ -1,0 +1,202 @@
+{
+  "sample": "Relay Rooms",
+  "version": "0.1.0",
+  "compiler": "Q3Map console compiler, Q26 terrain development build",
+  "compiler_sha256": "1bc7e3840d2f787460ddd625bee635d48a15547b31c6ff9c0b86d7c87b40d7b6",
+  "format": "IBSP version 46",
+  "passes": [
+    {
+      "map": "q26_relay_hall",
+      "pass": "bsp",
+      "exit_code": 0,
+      "seconds": 0.516,
+      "diagnostics": 0
+    },
+    {
+      "map": "q26_relay_hall",
+      "pass": "vis",
+      "exit_code": 0,
+      "seconds": 0.234,
+      "diagnostics": 0
+    },
+    {
+      "map": "q26_relay_hall",
+      "pass": "light",
+      "exit_code": 0,
+      "seconds": 0.141,
+      "diagnostics": 0
+    },
+    {
+      "map": "q26_relay_annex",
+      "pass": "bsp",
+      "exit_code": 0,
+      "seconds": 0.14,
+      "diagnostics": 0
+    },
+    {
+      "map": "q26_relay_annex",
+      "pass": "vis",
+      "exit_code": 0,
+      "seconds": 0.11,
+      "diagnostics": 0
+    },
+    {
+      "map": "q26_relay_annex",
+      "pass": "light",
+      "exit_code": 0,
+      "seconds": 0.109,
+      "diagnostics": 0
+    }
+  ],
+  "maps": [
+    {
+      "name": "q26_relay_hall",
+      "sha256": "3dcee7838eed1a2d7a222ba7ce0e838fda7f004e77f8f17c4f9016e54004c5e0",
+      "file_bytes": 71088,
+      "brushes": 15,
+      "draw_surfaces": 33,
+      "lightmaps": 1,
+      "entities": {
+        "worldspawn": 1,
+        "info_player_deathmatch": 2,
+        "light": 3,
+        "trigger_teleport": 2,
+        "misc_teleporter_dest": 2
+      },
+      "materials": [
+        "textures/q26_relay/amber",
+        "textures/q26_relay/cyan",
+        "textures/q26_relay/floor",
+        "textures/q26_relay/panel",
+        "textures/q26_relay/trigger"
+      ]
+    },
+    {
+      "name": "q26_relay_annex",
+      "sha256": "4f723b23a024e49e11c0f3aa58435ebbfb36225444816a0ab420ddb832f1653d",
+      "file_bytes": 64132,
+      "brushes": 10,
+      "draw_surfaces": 20,
+      "lightmaps": 1,
+      "entities": {
+        "worldspawn": 1,
+        "info_player_deathmatch": 2,
+        "light": 2
+      },
+      "materials": [
+        "textures/q26_relay/amber",
+        "textures/q26_relay/cyan",
+        "textures/q26_relay/floor",
+        "textures/q26_relay/panel"
+      ]
+    }
+  ],
+  "ship_contents": {
+    "pk3_entries": 11,
+    "source_zip_entries": 14,
+    "checksums": "SHA256SUMS.txt"
+  },
+  "dedicated_checks": {
+    "sample": "Relay Rooms",
+    "status": "PASS",
+    "network": "disabled",
+    "scope": "Dedicated server map rotation and additional static subworld load",
+    "runs": [
+      {
+        "configuration": "rotation",
+        "result": "PASS",
+        "primary_maps": [
+          "q26_relay_hall",
+          "q26_relay_annex"
+        ],
+        "qagame_mode": "interpreted",
+        "fallback": false,
+        "exit_code": 0,
+        "log_sha256": "abb4dd50332e66c3acc3f4ad250b1de929d15b116509c7df16e42adea92fd876"
+      },
+      {
+        "configuration": "subworlds",
+        "result": "PASS",
+        "primary_maps": [
+          "q26_relay_hall"
+        ],
+        "additional_map": "q26_relay_annex",
+        "offset": [
+          4096,
+          0,
+          0
+        ],
+        "qagame_mode": "interpreted",
+        "fallback": false,
+        "exit_code": 0,
+        "log_sha256": "0ea3fa827984e67d2b2b8a602dad485cc875d5781ebf8f9e6d258fbc8bcdcd1b"
+      }
+    ],
+    "visible_rendering": "not run",
+    "teleport_traversal": "not run"
+  },
+  "author": "Bill Kosche - William Kosche",
+  "gameplay_checks": {
+    "status": "PASS",
+    "pack_sha256": "c01dc6287565c59042dfb68db7e954f7f50d84f8771ab904920a1ae220cf420a",
+    "map": "q26_relay_hall",
+    "scope": "Rendered Windows OpenGL client and local listen server; scripted forward movement.",
+    "sampling": "Fixed 16 ms steps with 60 Hz server and requested snapshots.",
+    "lanes": [
+      {
+        "pad": "Cyan",
+        "passed": true,
+        "steady_approach_position": [
+          -270,
+          128,
+          50,
+          -180
+        ],
+        "last_before_transfer": [
+          -303,
+          128,
+          51,
+          -180
+        ],
+        "first_after_transfer": [
+          268,
+          128,
+          60,
+          -180
+        ],
+        "authored_destination_xy": [
+          272,
+          128
+        ],
+        "observed_x_change": 571
+      },
+      {
+        "pad": "Amber",
+        "passed": true,
+        "steady_approach_position": [
+          270,
+          -128,
+          50,
+          0
+        ],
+        "last_before_transfer": [
+          303,
+          -128,
+          51,
+          0
+        ],
+        "first_after_transfer": [
+          -268,
+          -128,
+          60,
+          0
+        ],
+        "authored_destination_xy": [
+          -272,
+          -128
+        ],
+        "observed_x_change": -571
+      }
+    ]
+  }
+}

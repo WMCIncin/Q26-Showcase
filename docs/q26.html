@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Q26 terrain dimensions, multi-map test results, and the original Relay Rooms map pack.">
+  <title>Q26 | Q26 Showcase</title>
+  <link rel="icon" href="media/favicon.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="q26">
+  <a class="skip" href="#main">Skip to content</a>
+  <header><div class="shell bar">
+    <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">Q26</span> Project showcase</a>
+    <nav aria-label="Projects"><a href="q26.html" aria-current="page">Q26</a><a href="chaos-circuits.html">Chaos Circuits</a><a href="assault-knights.html">Assault Knights</a></nav>
+  </div></header>
+  <main id="main" tabindex="-1" class="shell">
+<div class="hero">
+  <img src="media/q26-terrain.webp" alt="">
+  <div class="hero-copy">
+    <p class="kicker">Quake 2026</p>
+    <h1>Q26</h1>
+    <p class="intro">A Quake III–derived engine project exploring native-scale terrain, map authoring and several loaded worlds on one server.</p>
+    <div class="actions"><a class="button" href="#relay">Download Relay Rooms</a><a class="button secondary" href="#results">Read the test results</a></div>
+  </div>
+</div>
+<p class="caption">R8 terrain relief from the authored heightfield. The ocean, ranges and low passes use the same scale.</p><div class="metrics"><div class="metric"><strong>131.072 km</strong><span>R8 horizontal span per axis</span></div><div class="metric"><strong>27 / 27</strong><span>R8 collision and water probes</span></div><div class="metric"><strong>8 hours</strong><span>Private multi-map loopback run</span></div></div>
+<section id="results" aria-labelledby="results-title">
+  <h2 id="results-title">What the tests covered</h2>
+  <div class="table-wrap" tabindex="0" role="region" aria-label="Q26 test results">
+    <table>
+      <thead><tr><th scope="col">Run</th><th scope="col">Observed result</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">R8 terrain</th><td>One BSP world measured 4,194,304 × 4,194,304 map units. At 32 units per metre that is 131.072 × 131.072 km, with scale 1. The OpenGL run passed 27 selected collision and water probes.</td></tr>
+        <tr><th scope="row">R8 compiler</th><td>BSP, visibility and lighting completed. The BSP pass took 314.3 seconds on the test machine. The large run recorded 1,419 warnings about intermediate node padding. The emitted leaf bounds passed ordering and containment checks.</td></tr>
+        <tr><th scope="row">48-unit lanes, loopback</th><td>699 paired rounds and 16,760 isolation samples passed on one host during the eight-hour test. The run recorded zero telefrags and zero flood drops.</td></tr>
+        <tr><th scope="row">48-unit lanes, physical LAN</th><td>Three paired rounds and 56 isolation samples passed across two machines, with 28 and 27 transitions by the two clients. The run recorded zero telefrags and zero flood drops.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note"><p><strong>Still under test.</strong> Internet multiplayer and continuous terrain coverage need their own runs. The terrain recording used fixed-step capture, so the result gives no real-time frame-rate measurement.</p></div>
+</section>
+<section class="split" aria-labelledby="worlds-title">
+  <div><h2 id="worlds-title">Several maps on one server</h2>
+  <p>Q26’s subworld setting loads an additional BSP at a specified offset. A normal map rotation changes the active BSP between rounds. These are two separate ways to use the same maps.</p>
+  <p>Relay Rooms has sample configurations for both. The subworld example places the annex 4,096 units along X and loads its static geometry. The portal pads in Relay Hall stay inside the hall.</p></div>
+  <div class="info"><h3>Example offset</h3><pre><code>set sv_subworld1 "q26_relay_annex 4096 0 0"
+set sv_subworldEntities 0
+map q26_relay_hall</code></pre><p>Use a Q26 build that supports immutable subworlds. The 4,096-unit offset belongs to this sample. The separate 48-unit result describes the revised lanes used in the multi-client tests.</p></div>
+</section>
+<section id="relay" class="split" aria-labelledby="relay-title">
+  <div><p class="kicker">Original map sample</p><h2 id="relay-title">Relay Rooms</h2>
+    <p>Start in Relay Hall, walk onto a coloured pad, and look for the corresponding landing point in the opposite bay. Relay Annex is a smaller room for comparing map changes and layouts.</p>
+    <div class="actions"><a class="button" href="downloads/q26-relay-rooms-0.1.0.pk3">Download map pack (.pk3)</a><a class="button secondary" href="downloads/q26-relay-rooms-source-0.1.0.zip">Download editable source</a></div>
+    <p><a href="downloads/SHA256SUMS.txt">SHA-256 checksums</a> · <a href="downloads/relay-rooms-results.json">Build results</a></p>
+    <ol>
+      <li>Use a compatible Quake III–based client and your own game data. Place the PK3 in a test profile’s game directory.</li>
+      <li>Open the game console and enter <code>/map q26_relay_hall</code>. Use <code>/map q26_relay_annex</code> for the second room.</li>
+      <li>Open the source ZIP for the map sources, textures, shaders, configuration files and compiler instructions.</li>
+    </ol>
+    <p>Both maps passed BSP, visibility and lighting compilation, with zero reported diagnostics in those six passes. The build checks verified the compiled teleport targets and shader names. A dedicated server ran the map rotation and loaded the static annex at the specified offset. The Windows OpenGL client also loaded the exact release PK3 and walked both coloured pads. Cyan landed in the east bay and amber in the west bay.</p>
+  </div>
+  <figure><img src="media/relay-plan.webp" alt="Relay Hall plan with a cyan pad and landing point to the north and amber pad and landing point to the south" loading="lazy"><figcaption>Plan view of Relay Hall. Use the doorway to cross between bays on foot.</figcaption></figure>
+</section>
+<section aria-label="Related development posts"><h2>Development history</h2><ul><li><a href="dev-core.html">Windows Core and BSPC</a></li><li><a href="dev-terrain.html">R7 and R8 terrain</a></li><li><a href="dev-multi-map.html">48-unit lanes</a></li></ul></section>
+</main>
+  <footer><div class="shell foot">
+    <p>Q26 Showcase · 0.1.0 · Bill Kosche - William Kosche</p>
+    <div class="footer-links"><a href="development.html">Development posts</a><a href="index.html#projects">Project hubs</a><a href="legal.html">Licences and credits</a></div>
+  </div></footer>
+</body>
+</html>
