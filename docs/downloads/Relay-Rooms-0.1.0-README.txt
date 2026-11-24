@@ -1,0 +1,105 @@
+RELAY ROOMS 0.1.0 - DOWNLOAD AND INSTALLATION GUIDE
+By Bill Kosche - William Kosche
+Documentation added November 23, 2026
+
+This is a companion to the original 0.1.0 downloads. Those archives have not
+been repacked or changed by this documentation update.
+
+CHOOSE A DOWNLOAD
+
+q26-relay-rooms-0.1.0.pk3
+  Ready-to-load Relay Hall and Relay Annex maps, original textures/shaders,
+  two example configurations, and the sample licence. No map compilation
+  is needed to play these compiled maps.
+
+q26-relay-rooms-source-0.1.0.zip
+  Editable .map geometry, textures/shaders, configurations, a floor plan,
+  a rebuild README, and the sample licence. Use this to edit/recompile.
+
+Neither archive is an engine, game-data installer, map compiler, or editor.
+Use a compatible Quake III-based client with IBSP version 46 support and
+game data you are entitled to use. The Q26-only static-subworld example
+requires a Q26 build that supports immutable subworlds.
+
+Original downloads:
+https://github.com/WMCIncin/Q26-Showcase/releases/tag/v0.1.0
+
+INSTALL AND PLAY
+
+1. Download the PK3 and verify its SHA-256 below.
+2. Use a separate test profile. Put the PK3 in its game directory, normally
+   baseq3 for Quake III/Q26. Keep your client's original game-data packs.
+3. Start that compatible client and open its in-game console.
+4. Enter one of these commands:
+
+   /map q26_relay_hall
+   /map q26_relay_annex
+
+Relay Hall has two connected bays and a doorway between them. Walk onto
+the cyan pad to reach the east bay, or the amber pad to reach the west bay.
+These pads teleport within Relay Hall; they do not move between maps.
+Relay Annex is a separate smaller room with a raised central platform.
+
+EXAMPLE CONFIGURATIONS
+
+  /exec q26_relay_rotation.cfg
+    Sets up a two-map rotation. An operator can use /vstr nextmap to advance.
+
+  /exec q26_relay_subworlds.cfg
+    Q26-only: loads Hall as the primary map and Annex as additional static
+    geometry at offset 4096 0 0. The Hall pads still stay within Hall.
+
+Use a fresh test session/profile for each example. Subworld settings are
+separate from ordinary map rotation and can persist between sessions.
+
+EDIT AND REBUILD
+
+Extract the source ZIP and read relay-rooms/README.md. It documents the
+Q3Map BSP, visibility and lighting commands and the archive layout. Supply
+your own compatible compiler/editor. The compiler is not in this release.
+
+WHAT HAS BEEN CHECKED
+
+Both maps passed BSP, visibility and lighting compilation. The published
+results record six successful compile passes and dedicated-server checks
+of map rotation and the static-subworld example, with networking disabled.
+The public pack also passed an isolated client pad-traversal check.
+
+A later second-Windows-PC check loaded/rendered both maps and used scripted
+forward movement through both Hall pads to reach the expected bays. That
+check used software OpenGL over Remote Desktop after a hardware-path
+initialization failure. It is not hardware-performance, physical-console,
+LAN/Internet multiplayer, or bot-navigation qualification. A missing Hall
+.aas file was reported; do not assume the maps include bot navigation.
+
+Published build/results record:
+https://github.com/WMCIncin/Q26-Showcase/blob/v0.1.0/docs/downloads/relay-rooms-results.json
+
+CHECKSUMS - ORIGINAL RELEASE FILES
+
+SHA-256, q26-relay-rooms-0.1.0.pk3:
+c01dc6287565c59042dfb68db7e954f7f50d84f8771ab904920a1ae220cf420a
+
+SHA-256, q26-relay-rooms-source-0.1.0.zip:
+3f6afe4019e5c09c2edb947c76e7d7d3ed0eec56b7f98a37403b85cf49d2a98e
+
+In PowerShell, for example:
+  Get-FileHash -Algorithm SHA256 .\q26-relay-rooms-0.1.0.pk3
+
+Original checksum manifest:
+https://github.com/WMCIncin/Q26-Showcase/releases/download/v0.1.0/SHA256SUMS.txt
+
+REMOVAL
+
+Close the test client and remove this sample's PK3 from that test profile.
+Leave the client's original packs and other projects in place. Restore any
+example settings you chose to change, or discard the disposable profile.
+
+LICENCE AND CREDITS
+
+Original Relay Rooms maps/materials and compiled outputs use the BSD Zero
+Clause licence. The PK3 includes docs/q26-relay-rooms-LICENSE.txt; the source
+ZIP includes relay-rooms/LICENSE.txt. Preserve those notices. Engine and
+game-data licences are separate from the map sample's licence.
+
+https://github.com/WMCIncin/Q26-Showcase/blob/v0.1.0/NOTICE.md

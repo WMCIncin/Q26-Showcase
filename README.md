@@ -22,6 +22,8 @@ By **Bill Kosche - William Kosche**.
 2. Place the map pack in the game directory of a test profile on a compatible Quake III–based client you are entitled to use.
 3. In the client console, run `/map q26_relay_hall`. Walk onto a coloured pad to try the teleport route. Use `/map q26_relay_annex` for the second map.
 
+Read the [download and installation guide](docs/downloads/Relay-Rooms-0.1.0-README.txt) for requirements, map commands, removal, checksums and the scope of the recorded tests.
+
 See the [sample guide](examples/relay-rooms/README.md), [build results](docs/downloads/relay-rooms-results.json) and [SHA-256 checksums](docs/downloads/SHA256SUMS.txt). The sample includes a map rotation config and a Q26 static-subworld example. Both coloured teleport pads passed an in-game movement check in the Windows OpenGL client.
 
 The map pack contains original maps and materials. Obtain any compatible engine and game data separately and follow their licence terms. See [licences and credits](NOTICE.md) and the [0.1.0 release notes](CHANGELOG.md).
